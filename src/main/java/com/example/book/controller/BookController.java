@@ -9,9 +9,10 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/book")
 public class BookController {
     private final BookService bookService;
-    @PostMapping
+    @PostMapping("/insert")
     public String insert(@RequestBody Book book) {
         bookService.insert(book);
         return "Rent Insert +++++++++++++++";
@@ -28,13 +29,13 @@ public class BookController {
         return "Rent deleted successfully! delete -------";
     }
 
-    @PutMapping
+    @PostMapping("/update")
     public String update(@RequestBody Book book) {
         bookService.update(book);
         return "Rent updated successfully!update update upupupupup";
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Book> findAll() {
         return bookService.findAll();
     }

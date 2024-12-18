@@ -1,5 +1,5 @@
 server:
-  port: 7070
+  port: 7072
 
 spring:
   application:
@@ -29,3 +29,11 @@ logging:
         type:
           descriptor:
             sql: trace
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      #      defaultZone: http://192.168.0.27:8761/eureka
+      defaultZone: http://127.0.0.1:8761/eureka
