@@ -34,3 +34,33 @@ public class BookDAO {
         return bookRepository.findAll();
     }
 }
+
+//package miniproject.carrotmarket1.dao;
+//
+//import lombok.RequiredArgsConstructor;
+//import miniproject.carrotmarket1.entity.Report;
+//import miniproject.carrotmarket1.repository.ReportRepository;
+//import miniproject.carrotmarket1.repository.ReportSpecification;
+//import org.springframework.data.domain.Page;
+//import org.springframework.data.domain.Pageable;
+//import org.springframework.stereotype.Component;
+//
+//@Component
+//@RequiredArgsConstructor
+//public class ReportDAO {
+//
+//    private final ReportRepository reportRepository;
+//
+//    public Page<Report> getReportListPagination(String startDate,
+//                                                String endDate,
+//                                                String status,
+//                                                Pageable pageable,
+//                                                String tag,
+//                                                String search) {
+//        return reportRepository.findAll(
+//                ReportSpecification.filterReports(startDate, endDate, status, tag, search),
+//                pageable
+//        );
+//    }
+//}
+

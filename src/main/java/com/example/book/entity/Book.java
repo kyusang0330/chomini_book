@@ -1,9 +1,6 @@
 package com.example.book.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
+//image추가 필요
 @Entity
 @Table(name = "book")
 @Data
@@ -18,13 +16,19 @@ import java.util.Date;
 @NoArgsConstructor
 public class Book {
     @Id
-    @GeneratedValue
-    private int bookId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long bookId;
     @CreationTimestamp
     private Date creationDate;
     private String name;
     private String writer;
     private String registant;
+    //registant userId랑 연결해야함
+    //userDTO만들고 Feign사용할 것
 
-
+    public Book(String name, String writer, String registant) {
+        this.name = name;
+        this.writer = writer;
+        this.registant = registant;
+    }
 }

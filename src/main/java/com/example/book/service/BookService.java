@@ -1,10 +1,13 @@
 package com.example.book.service;
 
 import com.example.book.dao.BookDAO;
+import com.example.book.dto.BookRequestDTO;
+import com.example.book.dto.BookResponseDTO;
 import com.example.book.entity.Book;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -12,8 +15,9 @@ import java.util.List;
 public class BookService {
 
     private final BookDAO bookDAO;
-    public void insert(Book book) {
-        bookDAO.insert(book);
+    public void insert(BookRequestDTO bookdto) {
+        Book bookEntity = new Book(bookdto.getName(),bookdto.getWriter(),bookdto.getRegistant());
+        bookDAO.insert(bookEntity);
     }
 
     public Book findById(Long id) {
@@ -28,7 +32,36 @@ public class BookService {
         bookDAO.update(book);
     }
 
-    public List<Book> findAll() {
-        return bookDAO.findAll();
+    public List<BookResponseDTO> findAll() {
+        List<Book> books = bookDAO.findAll();
+        List<BookResponseDTO> booklist = new ArrayList<>();
+        BookResponseDTO bookdto = null;
+        for (Book book : books) {
+            bookdto = new BookResponseDTO(book.getBookId(),book.getCreationDate(),book.getName(),
+                    book.getWriter(),book.getRegistant());
+            booklist.add(bookdto);
+        }
+        return booklist;
     }
 }
+
+
+
+//@Service
+//@RequiredArgsConstructor
+//public class ReportService {
+//
+//    private final ReportDAO reportDAO;
+//
+//    public Page<Report> getReportListPagination(String startDate,
+//                                                String endDate,
+//                                                String status,
+//                                                int page,
+//                                                int size,
+//                                                String tag,
+//                                                String search) {
+//        PageRequest pageable = PageRequest.of(page, size);
+//        return reportDAO.getReportListPagination(startDate, endDate, status, pageable, tag, search);
+//    }
+//}
+
