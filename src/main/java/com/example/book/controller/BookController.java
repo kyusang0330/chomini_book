@@ -3,7 +3,7 @@ package com.example.book.controller;
 import com.example.book.dto.BookRequestDTO;
 import com.example.book.dto.BookResponseDTO;
 import com.example.book.entity.Book;
-import com.example.book.service.BookService;
+import com.example.book.service.BookServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +15,12 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/book")
 public class BookController {
-    private final BookService bookService;
+    private final BookServiceImpl bookService;
     //도서 등록
     @PostMapping("/insert")
     public ResponseEntity<?> insert(@RequestBody BookRequestDTO bookdto) {
         bookService.insert(bookdto);
-        return ResponseEntity.ok(HttpStatus.OK);
+        return /*"redirect://book/list"*/ResponseEntity.ok(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
