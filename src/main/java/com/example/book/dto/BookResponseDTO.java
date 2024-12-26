@@ -16,5 +16,5 @@ public class BookResponseDTO {
     private Date creationDate;
     private String name;
     private String writer;
-    private String registant;
+    private String registrant;
 }

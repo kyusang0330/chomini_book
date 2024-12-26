@@ -22,13 +22,13 @@ public class Book {
     private Date creationDate;
     private String name;
     private String writer;
-    private String registant;
+    private String registrant;
     //registant userId랑 연결해야함
     //userDTO만들고 Feign사용할 것
 
     public Book(String name, String writer, String registant) {
         this.name = name;
         this.writer = writer;
-        this.registant = registant;
+        this.registrant = registant;
     }
 }

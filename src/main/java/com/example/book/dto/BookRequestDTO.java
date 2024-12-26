@@ -14,5 +14,5 @@ public class BookRequestDTO {
 
     private String name;
     private String writer;
-    private String registant;
+    private String registrant;
 }
