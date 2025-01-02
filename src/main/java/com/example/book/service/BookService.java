@@ -11,6 +11,5 @@ public interface BookService {
     void insert(BookRequestDTO bookdto);
     Book findById(Long id);
     void delete(Long id);
-    void update(Book book);
     List<BookResponseDTO> findAll() ;
 }

@@ -8,6 +8,5 @@ public interface BookDAO {
     void insert(Book book);
     Book findById(Long id);
     void delete(Long id);
-    void update(Book book);
     List<Book> findAll();
 }
