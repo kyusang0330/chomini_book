@@ -28,7 +28,7 @@ public class BookController {
         return bookService.findById(id);
     }
 
-    @PostMapping("/{id}")
+    @DeleteMapping("/{id}")
     public String delete(@PathVariable Long id) {
         bookService.delete(id);
         return "Rent deleted successfully! delete -------";
