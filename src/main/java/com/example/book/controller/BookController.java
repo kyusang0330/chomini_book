@@ -31,7 +31,7 @@ public class BookController {
     @DeleteMapping("/{id}")
     public String delete(@PathVariable Long id) {
         bookService.delete(id);
-        return "Rent deleted successfully! delete -------";
+        return "Rent deleted successfully! delete ---***----";
     }
 
     //도서 목록
